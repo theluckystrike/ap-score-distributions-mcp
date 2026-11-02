@@ -1,0 +1,10 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.theluckystrike/ap-score-distributions-mcp",
+  "title": "AP Score Distributions",
+  "description": "Official College Board AP score distributions 2026, 2025, 2024: percentiles, pass rates.",
+  "version": "1.0.0",
+  "websiteUrl": "https://examscorecalc.com/ap-score-distributions/",
+  "repository": { "url": "https://github.com/theluckystrike/ap-score-distributions-mcp", "source": "github" },
+  "remotes": [ { "type": "streamable-http", "url": "https://ap-score-distributions-mcp.lipmichal.workers.dev/mcp" } ]
+}

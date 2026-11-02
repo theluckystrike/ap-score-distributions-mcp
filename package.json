@@ -1,0 +1,55 @@
+{
+  "name": "ap-score-distributions-mcp",
+  "version": "1.0.0",
+  "description": "AP score distributions MCP server: official College Board 2026, 2025 and 2024 AP exam score distributions, percentiles, pass rate comparisons and practice exam score estimates.",
+  "type": "module",
+  "license": "MIT",
+  "author": "theluckystrike",
+  "mcpName": "io.github.theluckystrike/ap-score-distributions-mcp",
+  "bin": {
+    "ap-score-distributions-mcp": "dist/stdio.js"
+  },
+  "main": "dist/core.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "DATA_SOURCES.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/stdio.js",
+    "test": "node --test",
+    "data": "python3 -I scripts/gen_data_ts.py data/ap.json src/data.ts",
+    "deploy": "wrangler deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theluckystrike/ap-score-distributions-mcp.git"
+  },
+  "homepage": "https://examscorecalc.com/ap-score-distributions/",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "claude",
+    "ap-scores",
+    "ap-score-distributions",
+    "ap-exam",
+    "college-board",
+    "ap-score-calculator",
+    "pass-rate",
+    "percentile",
+    "education"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,260 @@
+[
+ {
+  "name": "2025 Biology counts from the PDF",
+  "tool": "get_ap_score_distribution",
+  "input": {
+   "exam": "AP Biology",
+   "year": 2025
+  },
+  "expect": {
+   "total_students": 287232,
+   "counts.5": 54186,
+   "counts.1": 24625,
+   "three_plus.count": 202162,
+   "three_plus.percent": 70.4,
+   "mean": 3.24,
+   "sd": 1.22,
+   "percents.5": 18.9
+  }
+ },
+ {
+  "name": "2025 Calc BC by short name",
+  "tool": "get_ap_score_distribution",
+  "input": {
+   "exam": "calc bc",
+   "year": 2025
+  },
+  "expect": {
+   "exam": "AP Calculus BC",
+   "counts.5": 70565,
+   "percents.5": 44.0,
+   "total_students": 160436,
+   "mean": 3.82,
+   "three_plus.percent": 78.6
+  }
+ },
+ {
+  "name": "2025 English Language by short name",
+  "tool": "get_ap_score_distribution",
+  "input": {
+   "exam": "Lang",
+   "year": 2025
+  },
+  "expect": {
+   "exam": "AP English Language and Composition",
+   "total_students": 616294,
+   "counts.5": 82614,
+   "percents.5": 13.4
+  }
+ },
+ {
+  "name": "2024 US History from the PDF",
+  "tool": "get_ap_score_distribution",
+  "input": {
+   "exam": "APUSH",
+   "year": 2024
+  },
+  "expect": {
+   "exam": "AP United States History",
+   "total_students": 488688,
+   "counts.4": 162967,
+   "three_plus.count": 352694,
+   "three_plus.percent": 72.2,
+   "mean": 3.23,
+   "sd": 1.15
+  }
+ },
+ {
+  "name": "2024 World History Modern",
+  "tool": "get_ap_score_distribution",
+  "input": {
+   "exam": "AP World History: Modern",
+   "year": 2024
+  },
+  "expect": {
+   "total_students": 379385,
+   "counts.2": 104072,
+   "percents.2": 27.4,
+   "mean": 3.11
+  }
+ },
+ {
+  "name": "2026 US History is the default year, percents only",
+  "tool": "get_ap_score_distribution",
+  "input": {
+   "exam": "AP United States History"
+  },
+  "expect": {
+   "year": 2026,
+   "percents": {
+    "5": 14,
+    "4": 37,
+    "3": 23,
+    "2": 18,
+    "1": 8
+   },
+   "three_plus.percent": 74,
+   "total_students": null,
+   "mean": null
+  }
+ },
+ {
+  "name": "2026 Calculus BC",
+  "tool": "get_ap_score_distribution",
+  "input": {
+   "exam": "AP Calculus BC",
+   "year": 2026
+  },
+  "expect": {
+   "percents": {
+    "5": 46,
+    "4": 22,
+    "3": 14,
+    "2": 14,
+    "1": 4
+   },
+   "three_plus.percent": 82
+  }
+ },
+ {
+  "name": "percentile of a 4 in 2025 Biology from counts",
+  "tool": "estimate_ap_percentile",
+  "input": {
+   "exam": "AP Biology",
+   "score": 4,
+   "year": 2025
+  },
+  "expect": {
+   "percent_scored_lower": 57.02,
+   "percent_scored_same": 24.12,
+   "percentile_rank_midpoint": 69.1,
+   "basis": "counts"
+  }
+ },
+ {
+  "name": "percentile of a 5 in 2026 Psychology from published percents",
+  "tool": "estimate_ap_percentile",
+  "input": {
+   "exam": "psych",
+   "score": 5
+  },
+  "expect": {
+   "percent_scored_lower": 85,
+   "percent_scored_same": 15,
+   "percent_scored_higher": 0,
+   "percentile_rank_midpoint": 92.5,
+   "basis": "published_whole_percents"
+  }
+ },
+ {
+  "name": "compare Calc AB and BC pass rates, 2025",
+  "tool": "compare_ap_exams",
+  "input": {
+   "exams": [
+    "Calc AB",
+    "Calc BC"
+   ],
+   "year": 2025
+  },
+  "expect": {
+   "exams.0.exam": "AP Calculus BC",
+   "exams.0.pass_rate_3_plus": 78.6,
+   "exams.1.exam": "AP Calculus AB",
+   "exams.1.pass_rate_3_plus": 64.2
+  }
+ },
+ {
+  "name": "compare 2024 by test takers: US History 488,688 above Biology 260,062",
+  "tool": "compare_ap_exams",
+  "input": {
+   "exams": [
+    "AP Biology",
+    "APUSH"
+   ],
+   "year": 2024,
+   "sort_by": "test_takers"
+  },
+  "expect": {
+   "exams.0.exam": "AP United States History",
+   "exams.0.test_takers": 488688,
+   "exams.1.test_takers": 260062
+  }
+ },
+ {
+  "name": "list has 40 exams in 2026",
+  "tool": "list_ap_exams",
+  "input": {
+   "year": 2026
+  },
+  "expect": {
+   "latest_year": 2026,
+   "years_available": [
+    2024,
+    2025,
+    2026
+   ]
+  }
+ },
+ {
+  "name": "Calc AB 2012 worksheet: 30 MC and 5 on each FR = 66 -> 4",
+  "tool": "estimate_ap_score_from_composite",
+  "input": {
+   "exam": "AP Calculus AB",
+   "multiple_choice_correct": 30,
+   "free_response_points": [
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+   ]
+  },
+  "expect": {
+   "composite_score": 66,
+   "estimated_ap_score": 4,
+   "points_to_next_score": 1,
+   "composite_max": 108
+  }
+ },
+ {
+  "name": "Statistics 2012 worksheet: 20 MC and 2 on each FR -> 3",
+  "tool": "estimate_ap_score_from_composite",
+  "input": {
+   "exam": "stats",
+   "multiple_choice_correct": 20,
+   "free_response_points": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ]
+  },
+  "expect": {
+   "composite_score": 51,
+   "estimated_ap_score": 3,
+   "composite_max": 100
+  }
+ },
+ {
+  "name": "Macroeconomics 2012 worksheet: 40 MC, FR 6/3/3 -> 3",
+  "tool": "estimate_ap_score_from_composite",
+  "input": {
+   "exam": "macro",
+   "multiple_choice_correct": 40,
+   "free_response_points": [
+    6,
+    3,
+    3
+   ]
+  },
+  "expect": {
+   "composite_score": 56,
+   "estimated_ap_score": 3,
+   "band.min": 51,
+   "band.max": 58
+  }
+ }
+]
